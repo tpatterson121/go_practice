@@ -1,9 +1,8 @@
-package main // echo1 prints its command-line arguments
+package chapter1 // echo1 prints its command-line arguments
 
 import (
 	"fmt"
 	"os"
-	"strings"
 )
 
 func Echo1() {
@@ -24,8 +23,4 @@ func Echo2() {
 		sep = "*"
 	}
 	fmt.Println(s)
-}
-
-func main() {
-	fmt.Println(strings.Join(os.Args[1:], " "))
 }

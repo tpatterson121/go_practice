@@ -1,10 +1,11 @@
-package main
+package chapter1
 
 import (
 	"image"
 	"image/color"
 	"image/gif"
 	"io"
+	"log"
 	"math"
 	"math/rand"
 	"os"
@@ -17,11 +18,11 @@ const (
 	blackIndex = 1 // next color in palette
 )
 
-func Lissa () {
-	Lissajouse(os.Stdout)
+func Lissa() {
+	Lissajous(os.Stdout)
 }
 
-func Lissajouse(out io.Writer) {
+func Lissajous(out io.Writer) {
 	const (
 		cycles  = 5     // number of complete x oscillator revolutions
 		res     = 0.001 // angular resolution
@@ -44,5 +45,8 @@ func Lissajouse(out io.Writer) {
 		anim.Delay = append(anim.Delay, delay)
 		anim.Image = append(anim.Image, img)
 	}
-	gif.EncodeAll(out, &anim) // note: ignoring encoding errors
+	err := gif.EncodeAll(out, &anim) // note: ignoring encoding errors
+	if err != nil {
+		log.Fatal(err.Error())
+	}
 }
