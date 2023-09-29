@@ -13,7 +13,7 @@ var mu sync.Mutex
 var count int
 
 func Webserver2() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/", handler2)
 	http.HandleFunc("/count", counter)
 	log.Fatal(http.ListenAndServe("localhost:8000", nil))
 }
@@ -46,7 +46,7 @@ func handler3(w http.ResponseWriter, r *http.Request) {
 		log.Print(err)                      // combining the statements is shorter and reduces the scope of var err (scope is section 2.7)
 	}
 	for k, v := range r.Form {
-		fmt.Fprintf(w, "Form[%q] = %q\n", k, v[])
+		fmt.Fprintf(w, "Form[%q] = %q\n", k, v)
 	}
 }
 

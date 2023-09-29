@@ -15,5 +15,5 @@ func Webserver1() {
 
 // handler echoes the Path component of the request URL r.
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf(w, "URL.Path = %q\n", r.URL.Path) //ask brandon about w
+	w.Write([]byte(fmt.Sprintf("URL.Path = %q\n", r.URL.Path)))
 }
